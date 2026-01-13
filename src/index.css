@@ -6,6 +6,72 @@
 
 @layer base {
   :root {
+    /* Light Mode - Clean Corporate */
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 192 100% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 94%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 192 100% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 192 100% 40%;
+
+    --radius: 0.75rem;
+
+    /* Custom Brand Colors - Light Mode */
+    --navy-dark: 222 47% 94%;
+    --navy: 210 40% 98%;
+    --navy-light: 210 40% 96%;
+    --teal: 192 100% 40%;
+    --teal-glow: 192 100% 50%;
+    --cyan: 185 100% 45%;
+    --steel: 215 16% 47%;
+    --slate: 214 32% 91%;
+
+    /* Gradients - Light Mode */
+    --gradient-primary: linear-gradient(135deg, hsl(192 100% 40%) 0%, hsl(185 100% 45%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(210 40% 98%) 0%, hsl(210 40% 96%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+    
+    /* Shadows - Light Mode */
+    --shadow-sm: 0 2px 8px -2px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 8px 24px -8px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 16px 48px -12px rgba(0, 0, 0, 0.15);
+    --shadow-glow: 0 0 40px -10px rgba(0, 170, 200, 0.2);
+    --shadow-card: 0 4px 24px -4px rgba(0, 0, 0, 0.08);
+
+    /* Sidebar - Light Mode */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 192 100% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 94%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 192 100% 40%;
+  }
+
+  .dark {
     /* Deep Navy Corporate Theme */
     --background: 222 47% 6%;
     --foreground: 210 40% 98%;
@@ -28,16 +94,14 @@
     --accent: 192 100% 50%;
     --accent-foreground: 222 47% 6%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 222 30% 18%;
     --input: 222 30% 18%;
     --ring: 192 100% 50%;
 
-    --radius: 0.75rem;
-
-    /* Custom Brand Colors */
+    /* Custom Brand Colors - Dark Mode */
     --navy-dark: 222 47% 4%;
     --navy: 222 47% 6%;
     --navy-light: 222 47% 11%;
@@ -47,20 +111,20 @@
     --steel: 215 20% 65%;
     --slate: 222 30% 20%;
 
-    /* Gradients */
+    /* Gradients - Dark Mode */
     --gradient-primary: linear-gradient(135deg, hsl(192 100% 50%) 0%, hsl(185 100% 60%) 100%);
     --gradient-hero: linear-gradient(180deg, hsl(222 47% 6%) 0%, hsl(222 47% 11%) 100%);
     --gradient-card: linear-gradient(145deg, hsl(222 30% 12%) 0%, hsl(222 47% 8%) 100%);
     --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.02) 100%);
     
-    /* Shadows */
+    /* Shadows - Dark Mode */
     --shadow-sm: 0 2px 8px -2px rgba(0, 212, 255, 0.1);
     --shadow-md: 0 8px 24px -8px rgba(0, 212, 255, 0.15);
     --shadow-lg: 0 16px 48px -12px rgba(0, 212, 255, 0.2);
     --shadow-glow: 0 0 40px -10px rgba(0, 212, 255, 0.4);
     --shadow-card: 0 4px 24px -4px rgba(0, 0, 0, 0.3);
 
-    /* Sidebar */
+    /* Sidebar - Dark Mode */
     --sidebar-background: 222 47% 6%;
     --sidebar-foreground: 210 40% 98%;
     --sidebar-primary: 192 100% 50%;
@@ -69,28 +133,6 @@
     --sidebar-accent-foreground: 210 40% 98%;
     --sidebar-border: 222 30% 18%;
     --sidebar-ring: 192 100% 50%;
-  }
-
-  .dark {
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 192 100% 50%;
-    --primary-foreground: 222 47% 6%;
-    --secondary: 222 30% 15%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 222 30% 12%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 192 100% 50%;
-    --accent-foreground: 222 47% 6%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 222 30% 18%;
-    --input: 222 30% 18%;
-    --ring: 192 100% 50%;
   }
 }
 
@@ -112,13 +154,17 @@
 @layer components {
   /* Glass Card Effect */
   .glass-card {
-    @apply relative overflow-hidden rounded-xl;
+    @apply relative overflow-hidden rounded-xl bg-card;
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.5);
+    box-shadow: var(--shadow-card);
+  }
+
+  .dark .glass-card {
     background: linear-gradient(145deg, 
       hsl(222 30% 12% / 0.8) 0%, 
       hsl(222 47% 8% / 0.6) 100%
     );
-    backdrop-filter: blur(20px);
-    border: 1px solid hsl(222 30% 20% / 0.5);
   }
 
   .glass-card::before {
@@ -278,15 +324,20 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: hsl(222 47% 6%);
+    background: hsl(var(--background));
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(222 30% 20%);
+    background: hsl(var(--border));
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(192 100% 50% / 0.5);
+    background: hsl(var(--primary) / 0.5);
+  }
+
+  /* Theme transition */
+  * {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.2s ease;
   }
 }
