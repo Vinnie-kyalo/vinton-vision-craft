@@ -1,6 +1,7 @@
 import { ShoppingCart, ArrowRight, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from "@/components/ui/motion";
 
 const products = [
   {
@@ -45,7 +46,7 @@ const ProductsPreview = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+        <MotionFadeUp className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-4">
               IT Products
@@ -64,53 +65,52 @@ const ProductsPreview = () => {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
-        </div>
+        </MotionFadeUp>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <MotionStaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map((product) => (
-            <div
-              key={product.name}
-              className="glass-card card-3d group overflow-hidden"
-            >
-              {/* Product Image Placeholder */}
-              <div className="relative h-48 bg-gradient-to-br from-secondary to-muted/50 flex items-center justify-center overflow-hidden">
-                <div className="w-24 h-24 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                  <div className="w-12 h-12 rounded-xl bg-primary/20" />
-                </div>
-                {/* Category Badge */}
-                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-background/80 backdrop-blur-sm text-xs font-medium text-foreground border border-border/50">
-                  {product.category}
-                </span>
-              </div>
-
-              {/* Product Info */}
-              <div className="p-5">
-                {/* Rating */}
-                <div className="flex items-center gap-1 mb-2">
-                  <Star className="w-4 h-4 fill-primary text-primary" />
-                  <span className="text-sm font-medium text-foreground">{product.rating}</span>
-                </div>
-
-                <h3 className="font-display font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
-                  {product.name}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  {product.description}
-                </p>
-
-                <div className="flex items-center justify-between">
-                  <span className="font-display text-xl font-bold text-gradient">
-                    {product.price}
+            <MotionStaggerItem key={product.name}>
+              <div className="glass-card card-3d group overflow-hidden h-full">
+                {/* Product Image Placeholder */}
+                <div className="relative h-48 bg-gradient-to-br from-secondary to-muted/50 flex items-center justify-center overflow-hidden">
+                  <div className="w-24 h-24 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                    <div className="w-12 h-12 rounded-xl bg-primary/20" />
+                  </div>
+                  {/* Category Badge */}
+                  <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-background/80 backdrop-blur-sm text-xs font-medium text-foreground border border-border/50">
+                    {product.category}
                   </span>
-                  <Button variant="ghost" size="sm" className="group/btn">
-                    <ShoppingCart className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
-                  </Button>
+                </div>
+
+                {/* Product Info */}
+                <div className="p-5">
+                  {/* Rating */}
+                  <div className="flex items-center gap-1 mb-2">
+                    <Star className="w-4 h-4 fill-primary text-primary" />
+                    <span className="text-sm font-medium text-foreground">{product.rating}</span>
+                  </div>
+
+                  <h3 className="font-display font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
+                    {product.name}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {product.description}
+                  </p>
+
+                  <div className="flex items-center justify-between">
+                    <span className="font-display text-xl font-bold text-gradient">
+                      {product.price}
+                    </span>
+                    <Button variant="ghost" size="sm" className="group/btn">
+                      <ShoppingCart className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
+                    </Button>
+                  </div>
                 </div>
               </div>
-            </div>
+            </MotionStaggerItem>
           ))}
-        </div>
+        </MotionStaggerContainer>
       </div>
     </section>
   );

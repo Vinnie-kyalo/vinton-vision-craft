@@ -1,6 +1,7 @@
 import { Code, Server, Shield, Globe, Monitor, Cpu, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from "@/components/ui/motion";
 
 const services = [
   {
@@ -50,7 +51,7 @@ const ServicesSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <MotionFadeUp className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-4">
             What We Offer
           </span>
@@ -61,60 +62,58 @@ const ServicesSection = () => {
             End-to-end technology solutions designed to empower your business 
             with cutting-edge infrastructure and expert support.
           </p>
-        </div>
+        </MotionFadeUp>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <div
-              key={service.title}
-              className="glass-card card-3d p-8 group"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {/* Icon */}
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center mb-6 group-hover:border-primary/40 transition-all duration-500">
-                <service.icon className="w-7 h-7 text-primary" />
+        <MotionStaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service) => (
+            <MotionStaggerItem key={service.title}>
+              <div className="glass-card card-3d p-8 group h-full">
+                {/* Icon */}
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center mb-6 group-hover:border-primary/40 transition-all duration-500">
+                  <service.icon className="w-7 h-7 text-primary" />
+                </div>
+
+                {/* Content */}
+                <h3 className="font-display text-xl font-semibold text-foreground mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
+                  {service.description}
+                </p>
+
+                {/* Features */}
+                <ul className="space-y-2 mb-6">
+                  {service.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Link */}
+                <Link
+                  to="/services"
+                  className="inline-flex items-center gap-2 text-primary text-sm font-medium group/link"
+                >
+                  Learn More
+                  <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                </Link>
               </div>
-
-              {/* Content */}
-              <h3 className="font-display text-xl font-semibold text-foreground mb-3">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
-                {service.description}
-              </p>
-
-              {/* Features */}
-              <ul className="space-y-2 mb-6">
-                {service.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Link */}
-              <Link
-                to="/services"
-                className="inline-flex items-center gap-2 text-primary text-sm font-medium group/link"
-              >
-                Learn More
-                <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-              </Link>
-            </div>
+            </MotionStaggerItem>
           ))}
-        </div>
+        </MotionStaggerContainer>
 
         {/* CTA */}
-        <div className="text-center mt-12">
+        <MotionFadeUp delay={0.3} className="text-center mt-12">
           <Link to="/services">
             <Button variant="heroOutline" size="lg">
               View All Services
               <ArrowRight className="w-4 h-4" />
             </Button>
           </Link>
-        </div>
+        </MotionFadeUp>
       </div>
     </section>
   );
