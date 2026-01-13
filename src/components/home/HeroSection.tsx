@@ -1,6 +1,8 @@
 import { ArrowRight, Shield, Zap, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { fadeUpVariants, scaleUpVariants, staggerContainerVariants, staggerItemVariants } from "@/components/ui/motion";
 
 const HeroSection = () => {
   return (
@@ -19,26 +21,50 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 pt-24 pb-16 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8 fade-in-section">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeUpVariants}
+            custom={0}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8"
+          >
             <Shield className="w-4 h-4" />
             <span>Trusted by 500+ businesses worldwide</span>
-          </div>
+          </motion.div>
 
           {/* Main Heading */}
-          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6 fade-in-section stagger-1">
+          <motion.h1
+            initial="hidden"
+            animate="visible"
+            variants={fadeUpVariants}
+            custom={0.1}
+            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6"
+          >
             Powering Your Business with{" "}
             <span className="text-gradient">Next-Gen IT Solutions</span>
-          </h1>
+          </motion.h1>
 
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed fade-in-section stagger-2">
+          <motion.p
+            initial="hidden"
+            animate="visible"
+            variants={fadeUpVariants}
+            custom={0.2}
+            className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed"
+          >
             From cutting-edge web development to enterprise IT infrastructure, 
             we deliver comprehensive technology solutions that drive growth, 
             enhance security, and transform your digital presence.
-          </p>
+          </motion.p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 fade-in-section stagger-3">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeUpVariants}
+            custom={0.3}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+          >
             <Link to="/contact">
               <Button variant="hero" size="xl" className="group">
                 Get Free Consultation
@@ -50,33 +76,36 @@ const HeroSection = () => {
                 Explore Services
               </Button>
             </Link>
-          </div>
+          </motion.div>
 
           {/* Feature Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainerVariants}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+          >
             {[
               {
                 icon: Zap,
                 title: "Fast Delivery",
                 description: "Rapid deployment with agile methodology",
-                delay: "stagger-4",
               },
               {
                 icon: Shield,
                 title: "Secure Solutions",
                 description: "Enterprise-grade security standards",
-                delay: "stagger-5",
               },
               {
                 icon: Globe,
                 title: "Global Support",
                 description: "24/7 technical assistance worldwide",
-                delay: "stagger-6",
               },
             ].map((feature) => (
-              <div
+              <motion.div
                 key={feature.title}
-                className={`glass-card card-3d p-6 text-left group fade-in-section ${feature.delay}`}
+                variants={staggerItemVariants}
+                className="glass-card card-3d p-6 text-left group"
               >
                 <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4 group-hover:border-primary/40 transition-colors duration-300">
                   <feature.icon className="w-6 h-6 text-primary" />
@@ -87,25 +116,40 @@ const HeroSection = () => {
                 <p className="text-sm text-muted-foreground">
                   {feature.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* 3D Floating Elements */}
-        <div className="absolute top-1/4 left-10 hidden lg:block">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+          className="absolute top-1/4 left-10 hidden lg:block"
+        >
           <div className="w-20 h-20 rounded-2xl bg-primary/10 border border-primary/20 float rotate-12 flex items-center justify-center">
             <div className="w-8 h-8 rounded-lg bg-primary/30" />
           </div>
-        </div>
-        <div className="absolute bottom-1/4 right-10 hidden lg:block">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.8 }}
+          className="absolute bottom-1/4 right-10 hidden lg:block"
+        >
           <div className="w-16 h-16 rounded-xl bg-secondary border border-border float-delayed -rotate-12 flex items-center justify-center">
             <div className="w-6 h-6 rounded-full bg-primary/40" />
           </div>
-        </div>
-        <div className="absolute top-1/3 right-1/4 hidden lg:block">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
+          className="absolute top-1/3 right-1/4 hidden lg:block"
+        >
           <div className="w-12 h-12 rounded-lg bg-primary/5 border border-primary/10 float rotate-45" />
-        </div>
+        </motion.div>
       </div>
     </section>
   );
