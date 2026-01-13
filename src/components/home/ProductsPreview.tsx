@@ -3,13 +3,18 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from "@/components/ui/motion";
 
+import serverImg from "@/assets/products/server.jpg";
+import cctvImg from "@/assets/products/cctv.jpg";
+import laptopImg from "@/assets/products/laptop.jpg";
+import switchImg from "@/assets/products/switch.jpg";
+
 const products = [
   {
     name: "Enterprise Server Pro",
     category: "Servers",
     price: "$2,499",
     rating: 4.9,
-    image: "server",
+    image: serverImg,
     description: "High-performance rack server for enterprise workloads",
   },
   {
@@ -17,7 +22,7 @@ const products = [
     category: "Security",
     price: "$899",
     rating: 4.8,
-    image: "cctv",
+    image: cctvImg,
     description: "AI-powered surveillance with 4K resolution",
   },
   {
@@ -25,7 +30,7 @@ const products = [
     category: "Laptops",
     price: "$1,299",
     rating: 4.7,
-    image: "laptop",
+    image: laptopImg,
     description: "Professional laptop with premium build quality",
   },
   {
@@ -33,7 +38,7 @@ const products = [
     category: "Networking",
     price: "$649",
     rating: 4.9,
-    image: "switch",
+    image: switchImg,
     description: "Managed Gigabit switch for enterprise networks",
   },
 ];
@@ -72,11 +77,13 @@ const ProductsPreview = () => {
           {products.map((product) => (
             <MotionStaggerItem key={product.name}>
               <div className="glass-card card-3d group overflow-hidden h-full">
-                {/* Product Image Placeholder */}
-                <div className="relative h-48 bg-gradient-to-br from-secondary to-muted/50 flex items-center justify-center overflow-hidden">
-                  <div className="w-24 h-24 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                    <div className="w-12 h-12 rounded-xl bg-primary/20" />
-                  </div>
+                {/* Product Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                   {/* Category Badge */}
                   <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-background/80 backdrop-blur-sm text-xs font-medium text-foreground border border-border/50">
                     {product.category}

@@ -2,11 +2,20 @@ import { ArrowRight, Shield, Zap, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { fadeUpVariants, scaleUpVariants, staggerContainerVariants, staggerItemVariants } from "@/components/ui/motion";
+import { fadeUpVariants, staggerContainerVariants, staggerItemVariants } from "@/components/ui/motion";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      />
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-background/80" />
+      
       {/* Background Effects */}
       <div className="absolute inset-0 grid-pattern" />
       <div className="orb w-[600px] h-[600px] -top-48 -right-48" />
