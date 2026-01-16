@@ -114,8 +114,8 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <a href="mailto:info@vintontech.com" className="text-sm text-foreground hover:text-primary transition-colors">
-                    info@vintontech.com
+                  <a href="mailto:info@vintontechnologies.co.ke" className="text-sm text-foreground hover:text-primary transition-colors">
+                    info@vintontechnologies.co.ke
                   </a>
                 </div>
               </li>
@@ -125,8 +125,8 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Phone</p>
-                  <a href="tel:+1234567890" className="text-sm text-foreground hover:text-primary transition-colors">
-                    +1 (234) 567-890
+                  <a href="tel:+254745557243" className="text-sm text-foreground hover:text-primary transition-colors">
+                    0745557243
                   </a>
                 </div>
               </li>
@@ -137,8 +137,7 @@ const Footer = () => {
                 <div>
                   <p className="text-sm text-muted-foreground">Address</p>
                   <p className="text-sm text-foreground">
-                    123 Tech Street, Suite 100<br />
-                    Silicon Valley, CA 94000
+                    Kenya
                   </p>
                 </div>
               </li>

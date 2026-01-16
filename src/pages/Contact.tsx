@@ -87,26 +87,26 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      content: "+1 (234) 567-890",
-      subContent: "Mon-Fri, 9am-6pm EST",
+      content: "0745557243",
+      subContent: "Mon-Fri, 9am-6pm EAT",
     },
     {
       icon: Mail,
       title: "Email",
-      content: "info@vintontech.com",
+      content: "info@vintontechnologies.co.ke",
       subContent: "We reply within 24 hours",
     },
     {
       icon: MapPin,
       title: "Office",
-      content: "123 Tech Street, Suite 100",
-      subContent: "Silicon Valley, CA 94000",
+      content: "Kenya",
+      subContent: "East Africa",
     },
     {
       icon: Clock,
       title: "Business Hours",
       content: "Monday - Friday",
-      subContent: "9:00 AM - 6:00 PM EST",
+      subContent: "9:00 AM - 6:00 PM EAT",
     },
   ];
 
@@ -283,8 +283,8 @@ const Contact = () => {
                   <div className="absolute inset-0 grid-pattern opacity-50" />
                   <div className="text-center relative z-10">
                     <MapPin className="w-12 h-12 text-primary mx-auto mb-4" />
-                    <p className="text-foreground font-medium">123 Tech Street, Suite 100</p>
-                    <p className="text-sm text-muted-foreground">Silicon Valley, CA 94000</p>
+                    <p className="text-foreground font-medium">Kenya</p>
+                    <p className="text-sm text-muted-foreground">East Africa</p>
                   </div>
                 </div>
 
@@ -312,10 +312,10 @@ const Contact = () => {
                   <p className="text-sm text-muted-foreground mb-4">
                     Critical IT issues? Our emergency support team is available around the clock.
                   </p>
-                  <a href="tel:+1234567899">
+                  <a href="tel:+254745557243">
                     <Button variant="heroOutline" className="w-full">
                       <Phone className="w-4 h-4" />
-                      +1 (234) 567-899
+                      0745557243
                     </Button>
                   </a>
                 </div>
