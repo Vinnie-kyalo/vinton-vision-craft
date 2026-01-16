@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { cn } from "@/lib/utils";
+import CartButton from "@/components/cart/CartButton";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -83,14 +84,18 @@ const Navbar = () => {
           {/* CTA Button & Theme Toggle */}
           <div className="hidden lg:flex items-center gap-3">
             <ThemeToggle />
-            <Button variant="hero" size="default">
-              Get Started
-            </Button>
+            <CartButton />
+            <Link to="/contact">
+              <Button variant="hero" size="default">
+                Get Started
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-2">
             <ThemeToggle />
+            <CartButton />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg hover:bg-secondary/50 transition-colors"
