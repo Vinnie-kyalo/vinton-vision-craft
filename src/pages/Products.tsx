@@ -2,8 +2,10 @@ import { useState } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Star, Filter, Search, ArrowRight } from "lucide-react";
+import { ShoppingCart, Star, Filter, Search, ArrowRight, Check } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { useCart } from "@/contexts/CartContext";
+import { useToast } from "@/hooks/use-toast";
 
 // Product images
 import serverImg from "@/assets/products/server.jpg";
@@ -119,6 +121,24 @@ const products = [
 const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const { addItem, items } = useCart();
+  const { toast } = useToast();
+
+  const handleAddToCart = (product: typeof products[0]) => {
+    addItem({
+      id: product.id,
+      name: product.name,
+      category: product.category,
+      price: product.price,
+      image: product.image,
+    });
+    toast({
+      title: "Added to cart",
+      description: `${product.name} has been added to your cart.`,
+    });
+  };
+
+  const isInCart = (productId: number) => items.some((item) => item.id === productId);
 
   const filteredProducts = products.filter((product) => {
     const matchesCategory = selectedCategory === "All" || product.category === selectedCategory;
@@ -251,12 +271,17 @@ const Products = () => {
                         ${product.price.toLocaleString()}
                       </span>
                       <Button 
-                        variant="ghost" 
+                        variant={isInCart(product.id) ? "default" : "ghost"}
                         size="sm" 
                         className="group/btn"
                         disabled={!product.inStock}
+                        onClick={() => handleAddToCart(product)}
                       >
-                        <ShoppingCart className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
+                        {isInCart(product.id) ? (
+                          <Check className="w-4 h-4" />
+                        ) : (
+                          <ShoppingCart className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
+                        )}
                       </Button>
                     </div>
                   </div>
