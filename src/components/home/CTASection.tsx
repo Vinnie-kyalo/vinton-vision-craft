@@ -45,7 +45,7 @@ const CTASection = () => {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <a href="tel:+1234567890">
+              <a href="tel:+254745557243">
                 <Button variant="heroOutline" size="xl" className="group">
                   <Phone className="w-5 h-5" />
                   Call Us Now
@@ -63,7 +63,7 @@ const CTASection = () => {
                 </div>
                 <div className="text-left">
                   <div className="text-sm text-muted-foreground">Call Us</div>
-                  <div className="font-medium text-foreground">+1 (234) 567-890</div>
+                  <div className="font-medium text-foreground">0745557243</div>
                 </div>
               </div>
             </MotionStaggerItem>
@@ -74,7 +74,7 @@ const CTASection = () => {
                 </div>
                 <div className="text-left">
                   <div className="text-sm text-muted-foreground">Email Us</div>
-                  <div className="font-medium text-foreground">info@vintontech.com</div>
+                  <div className="font-medium text-foreground">info@vintontechnologies.co.ke</div>
                 </div>
               </div>
             </MotionStaggerItem>
