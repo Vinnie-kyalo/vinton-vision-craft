@@ -5,6 +5,16 @@ import { Button } from "@/components/ui/button";
 import { ShoppingCart, Star, Filter, Search, ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
+// Product images
+import serverImg from "@/assets/products/server.jpg";
+import cctvImg from "@/assets/products/cctv.jpg";
+import laptopImg from "@/assets/products/laptop.jpg";
+import switchImg from "@/assets/products/switch.jpg";
+import accessPointImg from "@/assets/products/access-point.jpg";
+import nvrImg from "@/assets/products/nvr.jpg";
+import towerServerImg from "@/assets/products/tower-server.jpg";
+import dockingStationImg from "@/assets/products/docking-station.jpg";
+
 const categories = ["All", "Servers", "Security", "Networking", "Laptops", "Accessories"];
 
 const products = [
@@ -18,6 +28,7 @@ const products = [
     description: "High-performance rack server designed for enterprise workloads with redundant power and advanced cooling.",
     specs: ["Intel Xeon Scalable", "128GB DDR4 ECC", "4TB NVMe SSD", "Dual PSU"],
     inStock: true,
+    image: serverImg,
   },
   {
     id: 2,
@@ -29,6 +40,7 @@ const products = [
     description: "Smart surveillance system with AI-powered motion detection, facial recognition, and 4K resolution.",
     specs: ["4K Ultra HD", "Night Vision", "AI Detection", "Cloud Storage"],
     inStock: true,
+    image: cctvImg,
   },
   {
     id: 3,
@@ -40,6 +52,7 @@ const products = [
     description: "Premium business laptop with military-grade durability and all-day battery life.",
     specs: ["Intel Core i7", "16GB RAM", "512GB SSD", "15.6\" FHD"],
     inStock: true,
+    image: laptopImg,
   },
   {
     id: 4,
@@ -51,6 +64,7 @@ const products = [
     description: "Enterprise-grade managed Gigabit switch with PoE+ support for all 48 ports.",
     specs: ["48x GbE Ports", "4x 10G SFP+", "740W PoE Budget", "L3 Managed"],
     inStock: true,
+    image: switchImg,
   },
   {
     id: 5,
@@ -62,6 +76,7 @@ const products = [
     description: "High-density WiFi 6E access point with seamless roaming and mesh capability.",
     specs: ["WiFi 6E", "2.5GbE", "Mesh Ready", "Cloud Managed"],
     inStock: false,
+    image: accessPointImg,
   },
   {
     id: 6,
@@ -73,6 +88,7 @@ const products = [
     description: "16-channel network video recorder with AI analytics and 8TB storage capacity.",
     specs: ["16 Channels", "8TB Storage", "4K Playback", "Remote Access"],
     inStock: true,
+    image: nvrImg,
   },
   {
     id: 7,
@@ -84,6 +100,7 @@ const products = [
     description: "Compact tower server perfect for small business and remote office deployments.",
     specs: ["Intel Xeon E", "64GB DDR4", "2TB RAID", "Quiet Operation"],
     inStock: true,
+    image: towerServerImg,
   },
   {
     id: 8,
@@ -95,6 +112,7 @@ const products = [
     description: "Universal USB-C docking station with dual 4K display support and 100W power delivery.",
     specs: ["Dual 4K@60Hz", "100W PD", "USB 3.2 Gen 2", "SD Card Reader"],
     inStock: true,
+    image: dockingStationImg,
   },
 ];
 
@@ -180,11 +198,13 @@ const Products = () => {
                   key={product.id}
                   className="glass-card card-3d group overflow-hidden"
                 >
-                  {/* Product Image Placeholder */}
-                  <div className="relative h-48 bg-gradient-to-br from-secondary to-muted/50 flex items-center justify-center overflow-hidden">
-                    <div className="w-24 h-24 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                      <div className="w-12 h-12 rounded-xl bg-primary/20" />
-                    </div>
+                  {/* Product Image */}
+                  <div className="relative h-48 bg-gradient-to-br from-secondary to-muted/50 overflow-hidden">
+                    <img 
+                      src={product.image} 
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
                     
                     {/* Badges */}
                     <div className="absolute top-4 left-4 flex flex-col gap-2">
