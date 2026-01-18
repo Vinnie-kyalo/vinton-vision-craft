@@ -1,12 +1,28 @@
 // Product images
 import serverImg from "@/assets/products/server.jpg";
+import serverImg2 from "@/assets/products/server-2.jpg";
+import serverImg3 from "@/assets/products/server-3.jpg";
 import cctvImg from "@/assets/products/cctv.jpg";
+import cctvImg2 from "@/assets/products/cctv-2.jpg";
+import cctvImg3 from "@/assets/products/cctv-3.jpg";
 import laptopImg from "@/assets/products/laptop.jpg";
+import laptopImg2 from "@/assets/products/laptop-2.jpg";
+import laptopImg3 from "@/assets/products/laptop-3.jpg";
 import switchImg from "@/assets/products/switch.jpg";
+import switchImg2 from "@/assets/products/switch-2.jpg";
+import switchImg3 from "@/assets/products/switch-3.jpg";
 import accessPointImg from "@/assets/products/access-point.jpg";
+import accessPointImg2 from "@/assets/products/access-point-2.jpg";
+import accessPointImg3 from "@/assets/products/access-point-3.jpg";
 import nvrImg from "@/assets/products/nvr.jpg";
+import nvrImg2 from "@/assets/products/nvr-2.jpg";
+import nvrImg3 from "@/assets/products/nvr-3.jpg";
 import towerServerImg from "@/assets/products/tower-server.jpg";
+import towerServerImg2 from "@/assets/products/tower-server-2.jpg";
+import towerServerImg3 from "@/assets/products/tower-server-3.jpg";
 import dockingStationImg from "@/assets/products/docking-station.jpg";
+import dockingStationImg2 from "@/assets/products/docking-station-2.jpg";
+import dockingStationImg3 from "@/assets/products/docking-station-3.jpg";
 
 export interface Product {
   id: number;
@@ -47,7 +63,7 @@ export const products: Product[] = [
       { label: "Warranty", value: "3 Years On-Site" },
     ],
     inStock: true,
-    images: [serverImg, serverImg, serverImg],
+    images: [serverImg, serverImg2, serverImg3],
   },
   {
     id: 2,
@@ -70,7 +86,7 @@ export const products: Product[] = [
       { label: "Warranty", value: "2 Years" },
     ],
     inStock: true,
-    images: [cctvImg, cctvImg, cctvImg],
+    images: [cctvImg, cctvImg2, cctvImg3],
   },
   {
     id: 3,
@@ -93,7 +109,7 @@ export const products: Product[] = [
       { label: "Warranty", value: "3 Years On-Site" },
     ],
     inStock: true,
-    images: [laptopImg, laptopImg, laptopImg],
+    images: [laptopImg, laptopImg2, laptopImg3],
   },
   {
     id: 4,
@@ -116,7 +132,7 @@ export const products: Product[] = [
       { label: "Warranty", value: "Lifetime Limited" },
     ],
     inStock: true,
-    images: [switchImg, switchImg, switchImg],
+    images: [switchImg, switchImg2, switchImg3],
   },
   {
     id: 5,
@@ -139,7 +155,7 @@ export const products: Product[] = [
       { label: "Warranty", value: "3 Years" },
     ],
     inStock: false,
-    images: [accessPointImg, accessPointImg, accessPointImg],
+    images: [accessPointImg, accessPointImg2, accessPointImg3],
   },
   {
     id: 6,
@@ -162,7 +178,7 @@ export const products: Product[] = [
       { label: "Warranty", value: "2 Years" },
     ],
     inStock: true,
-    images: [nvrImg, nvrImg, nvrImg],
+    images: [nvrImg, nvrImg2, nvrImg3],
   },
   {
     id: 7,
@@ -185,7 +201,7 @@ export const products: Product[] = [
       { label: "Warranty", value: "3 Years Next Business Day" },
     ],
     inStock: true,
-    images: [towerServerImg, towerServerImg, towerServerImg],
+    images: [towerServerImg, towerServerImg2, towerServerImg3],
   },
   {
     id: 8,
@@ -208,7 +224,7 @@ export const products: Product[] = [
       { label: "Warranty", value: "2 Years" },
     ],
     inStock: true,
-    images: [dockingStationImg, dockingStationImg, dockingStationImg],
+    images: [dockingStationImg, dockingStationImg2, dockingStationImg3],
   },
 ];
 
