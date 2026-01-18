@@ -1,122 +1,13 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Star, Filter, Search, ArrowRight, Check } from "lucide-react";
+import { ShoppingCart, Star, Search, ArrowRight, Check } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
-
-// Product images
-import serverImg from "@/assets/products/server.jpg";
-import cctvImg from "@/assets/products/cctv.jpg";
-import laptopImg from "@/assets/products/laptop.jpg";
-import switchImg from "@/assets/products/switch.jpg";
-import accessPointImg from "@/assets/products/access-point.jpg";
-import nvrImg from "@/assets/products/nvr.jpg";
-import towerServerImg from "@/assets/products/tower-server.jpg";
-import dockingStationImg from "@/assets/products/docking-station.jpg";
-
-const categories = ["All", "Servers", "Security", "Networking", "Laptops", "Accessories"];
-
-const products = [
-  {
-    id: 1,
-    name: "Enterprise Server Pro X500",
-    category: "Servers",
-    price: 2499,
-    rating: 4.9,
-    reviews: 128,
-    description: "High-performance rack server designed for enterprise workloads with redundant power and advanced cooling.",
-    specs: ["Intel Xeon Scalable", "128GB DDR4 ECC", "4TB NVMe SSD", "Dual PSU"],
-    inStock: true,
-    image: serverImg,
-  },
-  {
-    id: 2,
-    name: "AI-Powered CCTV System 4K",
-    category: "Security",
-    price: 899,
-    rating: 4.8,
-    reviews: 256,
-    description: "Smart surveillance system with AI-powered motion detection, facial recognition, and 4K resolution.",
-    specs: ["4K Ultra HD", "Night Vision", "AI Detection", "Cloud Storage"],
-    inStock: true,
-    image: cctvImg,
-  },
-  {
-    id: 3,
-    name: "Business Laptop Elite 15",
-    category: "Laptops",
-    price: 1299,
-    rating: 4.7,
-    reviews: 312,
-    description: "Premium business laptop with military-grade durability and all-day battery life.",
-    specs: ["Intel Core i7", "16GB RAM", "512GB SSD", "15.6\" FHD"],
-    inStock: true,
-    image: laptopImg,
-  },
-  {
-    id: 4,
-    name: "Managed Switch 48-Port PoE+",
-    category: "Networking",
-    price: 649,
-    rating: 4.9,
-    reviews: 89,
-    description: "Enterprise-grade managed Gigabit switch with PoE+ support for all 48 ports.",
-    specs: ["48x GbE Ports", "4x 10G SFP+", "740W PoE Budget", "L3 Managed"],
-    inStock: true,
-    image: switchImg,
-  },
-  {
-    id: 5,
-    name: "Wireless Access Point Pro",
-    category: "Networking",
-    price: 349,
-    rating: 4.6,
-    reviews: 167,
-    description: "High-density WiFi 6E access point with seamless roaming and mesh capability.",
-    specs: ["WiFi 6E", "2.5GbE", "Mesh Ready", "Cloud Managed"],
-    inStock: false,
-    image: accessPointImg,
-  },
-  {
-    id: 6,
-    name: "NVR Security Recorder 16CH",
-    category: "Security",
-    price: 599,
-    rating: 4.8,
-    reviews: 145,
-    description: "16-channel network video recorder with AI analytics and 8TB storage capacity.",
-    specs: ["16 Channels", "8TB Storage", "4K Playback", "Remote Access"],
-    inStock: true,
-    image: nvrImg,
-  },
-  {
-    id: 7,
-    name: "Tower Server Workstation",
-    category: "Servers",
-    price: 1899,
-    rating: 4.7,
-    reviews: 78,
-    description: "Compact tower server perfect for small business and remote office deployments.",
-    specs: ["Intel Xeon E", "64GB DDR4", "2TB RAID", "Quiet Operation"],
-    inStock: true,
-    image: towerServerImg,
-  },
-  {
-    id: 8,
-    name: "USB-C Docking Station Pro",
-    category: "Accessories",
-    price: 199,
-    rating: 4.5,
-    reviews: 423,
-    description: "Universal USB-C docking station with dual 4K display support and 100W power delivery.",
-    specs: ["Dual 4K@60Hz", "100W PD", "USB 3.2 Gen 2", "SD Card Reader"],
-    inStock: true,
-    image: dockingStationImg,
-  },
-];
+import { products, categories } from "@/data/products";
 
 const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -124,13 +15,15 @@ const Products = () => {
   const { addItem, items } = useCart();
   const { toast } = useToast();
 
-  const handleAddToCart = (product: typeof products[0]) => {
+  const handleAddToCart = (e: React.MouseEvent, product: typeof products[0]) => {
+    e.preventDefault();
+    e.stopPropagation();
     addItem({
       id: product.id,
       name: product.name,
       category: product.category,
       price: product.price,
-      image: product.image,
+      image: product.images[0],
     });
     toast({
       title: "Added to cart",
@@ -214,14 +107,15 @@ const Products = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredProducts.map((product) => (
-                <div
+                <Link
                   key={product.id}
-                  className="glass-card card-3d group overflow-hidden"
+                  to={`/products/${product.id}`}
+                  className="glass-card card-3d group overflow-hidden block"
                 >
                   {/* Product Image */}
                   <div className="relative h-48 bg-gradient-to-br from-secondary to-muted/50 overflow-hidden">
                     <img 
-                      src={product.image} 
+                      src={product.images[0]} 
                       alt={product.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
@@ -275,7 +169,7 @@ const Products = () => {
                         size="sm" 
                         className="group/btn"
                         disabled={!product.inStock}
-                        onClick={() => handleAddToCart(product)}
+                        onClick={(e) => handleAddToCart(e, product)}
                       >
                         {isInCart(product.id) ? (
                           <Check className="w-4 h-4" />
@@ -285,7 +179,7 @@ const Products = () => {
                       </Button>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
 
@@ -307,9 +201,11 @@ const Products = () => {
               <p className="text-muted-foreground mb-8">
                 Contact our team for bulk orders, custom configurations, or enterprise quotes.
               </p>
-              <Button variant="hero" size="lg" className="group">
-                Request Quote
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <Button variant="hero" size="lg" className="group" asChild>
+                <Link to="/quote">
+                  Request Quote
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
             </div>
           </div>
