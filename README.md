@@ -104,8 +104,6 @@ Suggestions, improvements, and collaboration opportunities are welcome. For sign
 
 ## 📬 Connect With Us
 
-- **Website:** https://vintontechnologies.co.ke
-- **Portfolio:** https://portfolio.vintontechnologies.co.ke
 - **GitHub:** https://github.com/Vinnie-kyalo
 
 ---
